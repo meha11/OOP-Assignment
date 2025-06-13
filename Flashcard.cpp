@@ -50,3 +50,25 @@ public:
         return FlashCard(q, a, s);
     }
 };
+
+class FileManager {
+public:
+    static void save(const string& filename, const vector<FlashCard>& cards) {
+        ofstream out(filename);
+        for (const auto& card : cards) {
+            card.saveToFile(out);
+        }
+        cout << "Cards saved to file.\n";
+    }
+
+    static vector<FlashCard> load(const string& filename) {
+        vector<FlashCard> cards;
+        ifstream in(filename);
+        string line;
+        while (getline(in, line)) {
+            cards.push_back(FlashCard::loadFromLine(line));
+        }
+        cout << "Loaded" << cards.size() << " cards loaded.\n";
+        return cards;
+    }
+};
