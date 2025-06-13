@@ -93,3 +93,25 @@ public:
         cout << " Score: " << totalCorrect << " / " << totalAttempts << " correct\n";
     }
 };
+
+class FlashCardSet {
+private:
+    vector<FlashCard> cards;
+
+public:
+    void addCard(const FlashCard& card)
+    {
+        cards.push_back(card);
+    }
+
+    void reviewCards(User& user)
+    {
+        cout << "\n-- Review Session --\n";
+        if (cards.empty()) {
+            cout << "No flashcards to review.\n";
+            return;
+        }
+
+        sort(cards.begin(), cards.end(), [](FlashCard a, FlashCard b) {
+            return a.getScore() < b.getScore();
+        });
