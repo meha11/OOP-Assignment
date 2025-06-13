@@ -72,3 +72,24 @@ public:
         return cards;
     }
 };
+
+class User {
+private:
+    string name;
+    int totalCorrect = 0;
+    int totalAttempts = 0;
+
+public:
+    User(string uname) : name(uname) {}
+
+    void updateScore(bool correct)
+    {
+        totalAttempts++;
+        if (correct) totalCorrect++;
+    }
+
+    void showScore() const {
+        cout << " User: " << name << "\n";
+        cout << " Score: " << totalCorrect << " / " << totalAttempts << " correct\n";
+    }
+};
