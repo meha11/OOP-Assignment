@@ -115,3 +115,25 @@ public:
         sort(cards.begin(), cards.end(), [](FlashCard a, FlashCard b) {
             return a.getScore() < b.getScore();
         });
+
+        for (auto& card : cards)
+        {
+            card.showCard();
+            cout << "Your Answer: ";
+            string ans;
+            getline(cin, ans);
+            bool correct = card.checkAnswer(ans);
+            if (correct) {
+                cout << "Correct!\n";
+            } else {
+                cout << "Incorrect! Answer: " << card.getAnswer() << endl;
+            }
+            card.adjustScore(correct);
+            user.updateScore(correct);
+        }
+
+        user.showScore();
+    }
+
+    vector<FlashCard>& getCards() { return cards; }
+};
