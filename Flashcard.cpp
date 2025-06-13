@@ -195,4 +195,15 @@ public:
             }
         } while (choice != 5);
     }
-}
+
+    void createCard()
+    {
+        string q, a;
+        cout << "Enter Question: ";
+        getline(cin, q);
+        cout << "Enter Answer: ";
+        getline(cin, a);
+        cardSet.addCard(FlashCard(q, a));
+        cout << "Card added!\n";
+    }
+};
