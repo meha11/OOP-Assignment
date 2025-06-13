@@ -137,3 +137,24 @@ public:
 
     vector<FlashCard>& getCards() { return cards; }
 };
+
+class FlashCardApp {
+private:
+    FlashCardSet cardSet;
+    string fileName = "flashcards.txt";
+    User* user;
+
+public:
+    FlashCardApp()
+    {
+        string uname;
+        cout << "Enter your name: ";
+        getline(cin, uname);
+        user = new User(uname);
+    }
+
+    ~FlashCardApp()
+    {
+        delete user;
+    }
+}
