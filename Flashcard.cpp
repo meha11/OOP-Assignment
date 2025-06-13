@@ -157,4 +157,42 @@ public:
     {
         delete user;
     }
+
+    void menu()
+    {
+        int choice;
+        do {
+            cout << "\n=== Digital Flash Card Menu ===\n";
+            cout << "1. Create Flash Card\n";
+            cout << "2. Review Flash Cards\n";
+            cout << "3. Save Flash Cards\n";
+            cout << "4. Load Flash Cards\n";
+            cout << "5. Exit\n";
+            cout << "Enter your choice: ";
+            cin >> choice;
+            cin.ignore();
+
+            switch (choice) {
+            case 1:
+                createCard();
+                break;
+            case 2:
+                cardSet.reviewCards(*user);
+                break;
+            case 3:
+                FileManager::save(fileName, cardSet.getCards());
+                break;
+            case 4: {
+                auto loaded = FileManager::load(fileName);
+                for (const auto& card : loaded) cardSet.addCard(card);
+                break;
+            }
+            case 5:
+                cout << "Exiting program. Bye!\n";
+                break;
+            default:
+                cout << "Invalid option.\n";
+            }
+        } while (choice != 5);
+    }
 }
