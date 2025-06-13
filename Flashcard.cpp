@@ -207,3 +207,10 @@ public:
         cout << "Card added!\n";
     }
 };
+
+int main()
+{
+    FlashCardApp app;
+    app.menu();
+    return 0;
+}
