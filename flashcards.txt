@@ -1,3 +1,5 @@
-1+1|2|0
-2+2|4|2
-3+3|6|3
+How much is 46 + 11|57|2
+How many months there is in a year ?|12|2
+When did Malaysia gained Independence?|31 August 1957|4
+What int means in C++?|Integer|4
+Complete the equation a^2 + b^2 = ?|c^2|4
